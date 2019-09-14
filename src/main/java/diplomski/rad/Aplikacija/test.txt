@@ -1,0 +1,24 @@
+//dodaj "biljka" (NOV, JUL) basta, 50, senka, puno "biljka_podlozna_napadima_insekata" //ispravno, sa napomenom
+//dodaj "biljka" (MAJ, JUL) basta, 20, senka, puno //ispravno, bez napomene
+//dodaj "adas" JUN, JULI basta, 20, senka, puno "napomena" //greska - JULI
+//dodaj "adas" JUN, JUL basta, 20, senka, puno "napomena //greska, fali navodnik posle teksta napomene
+//dodaj "biljka" (JAN, AVG) basta, 20, senka, puno "biljka_nije_podlozna_napadima_insekata" //ispravno
+//dodaj "biljka" JAN, AVG basta, 20, senka, puno "napomena" //greska, fale zagrade
+
+//dodaj "biljka" (MAJ, JUL) basta, 20, senka, puno "biljka_podlozna_napadima_insekata" ispravno, sa napomenom //neispravno, komentar bez '//'
+
+//dodaj "biljka" 
+//        (JAN, AVG) 
+//        basta, 20, senka, puno "nap" //ispravno, razmaci i znakovi za novi red se preskacu u skeneru
+
+pretrazi ime=aaaa //ispravno
+//pretrazi berba=JUL //ispravno
+//pretrazi sadnja=MAJ, berba=JUL //ispravno
+//pretrazi ime=biljka, sadnja=AVG, berba=OKT, dubina=20 //ispravno
+//pretrazi ime=biljka, sadnja=SEPT //neispravno
+
+//pretrazi ime=biljka, sadnja=AVG, berba=OKT, mesto=basta, dubina=20, svetlo=senka, voda=puno //ispravno
+//pretrazi sadnja=AVG, mesto = basta, voda =malo //ispravno
+
+//pretrazi_raspon 7 //ispravno
+//pretrazi_raspon MAJ, JUN //neispravno
