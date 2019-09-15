@@ -17,12 +17,15 @@ parser code
 
     static List<DBObject> res = new ArrayList();
 
+    static Boolean success = null;
+
     public static void main(String args[]) throws Exception{
         System.out.println(new parser(new Yylex(new FileReader(new File(args[0])))).parse());
     }
 
     public static List<DBObject> par(String file) throws Exception{
         res = new ArrayList();
+        success = null;
         new parser(new Yylex(new FileReader(new File(file)))).parse();
 
         return res;
@@ -35,6 +38,9 @@ parser code
     public void report_error(String message, Object info) {
       System.err.print(message);
       System.err.flush();
+
+      success = false;
+
       if (info instanceof Symbol)
 	        System.err.println(" u liniji " + ((Symbol)info).left);
       else System.err.println("");
@@ -103,7 +109,9 @@ izraz ::=           dodavanje:d {:
                         if (mapa.containsKey("napomena")) 
                             obj.append("napomena", mapa.get("napomena"));
                         
-                        collection.insert(obj);               
+                        collection.insert(obj);
+
+                        success = true;
 
                         System.out.println("Dodavanje biljke sa imenom '" + mapa.get("ime") + "' uspesno izvrseno."); :}
                     | pretraga:p {:
@@ -143,6 +151,7 @@ izraz ::=           dodavanje:d {:
 
                         System.out.println("Izraz za pretragu raspona parsiran bez greske." + b); :}
                     | error {:
+                        success = false;
                         System.err.println("Neispravan izraz.\n"); :}
                     ;
 dodavanje ::=       DODAJ NAVODNIK TEXT:ime NAVODNIK OZAGRADA MESEC:sadnja ZAREZ MESEC:berba ZZAGRADA MESTO:mesto ZAREZ BROJ:broj ZAREZ SVETLO:svetlo ZAREZ VODA:voda NAVODNIK TEXT:napomena NAVODNIK {:

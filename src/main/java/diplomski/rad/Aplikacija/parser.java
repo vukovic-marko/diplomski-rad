@@ -148,12 +148,15 @@ public class parser extends java_cup.runtime.lr_parser {
 
     static List<DBObject> res = new ArrayList();
 
+    static Boolean success = null;
+
     public static void main(String args[]) throws Exception{
         System.out.println(new parser(new Yylex(new FileReader(new File(args[0])))).parse());
     }
 
     public static List<DBObject> par(String file) throws Exception{
         res = new ArrayList();
+        success = null;
         new parser(new Yylex(new FileReader(new File(file)))).parse();
 
         return res;
@@ -166,6 +169,9 @@ public class parser extends java_cup.runtime.lr_parser {
     public void report_error(String message, Object info) {
       System.err.print(message);
       System.err.flush();
+
+      success = false;
+
       if (info instanceof Symbol)
 	        System.err.println(" u liniji " + ((Symbol)info).left);
       else System.err.println("");
@@ -262,7 +268,9 @@ class CUP$parser$actions {
                         if (mapa.containsKey("napomena")) 
                             obj.append("napomena", mapa.get("napomena"));
                         
-                        collection.insert(obj);               
+                        collection.insert(obj);
+
+                        success = true;
 
                         System.out.println("Dodavanje biljke sa imenom '" + mapa.get("ime") + "' uspesno izvrseno."); 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("izraz",0, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
@@ -332,6 +340,7 @@ class CUP$parser$actions {
             {
               Object RESULT =null;
 		
+                        success = false;
                         System.err.println("Neispravan izraz.\n"); 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("izraz",0, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }

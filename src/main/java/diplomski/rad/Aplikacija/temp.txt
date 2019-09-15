@@ -1,1 +1,1 @@
-pretrazi_raspon 3
+pretrazi_raspon 12

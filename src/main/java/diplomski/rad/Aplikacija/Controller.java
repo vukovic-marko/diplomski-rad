@@ -2,6 +2,7 @@ package diplomski.rad.Aplikacija;
 
 import com.mongodb.DBObject;
 import diplomski.rad.Aplikacija.DTO.Biljka;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.FileWriter;
@@ -27,7 +28,7 @@ public class Controller {
 //    }
 
     @PostMapping("/add")
-    public void add(@RequestBody Biljka b) {
+    public ResponseEntity<Boolean> add(@RequestBody Biljka b) {
 
 //        System.out.println(b.getIme());
 //        System.out.println(b.getMesecSadnje());
@@ -39,8 +40,11 @@ public class Controller {
 //        System.out.println(b.getNapomena().replaceAll(" ", "_"));
 
         String komanda = "dodaj " + "\"" + b.getIme().replaceAll(" ", "_") + "\"" + " (" + b.getMesecSadnje() + ", " + b.getMesecBerbe() + ") " +
-                b.getMestoSadnje() + ", " + b.getDubinaSadnje() + ", " + b.getSvetlo() + ", " + b.getVoda() +
-                " \"" + b.getNapomena().replaceAll(" ", "_") + "\"";
+                b.getMestoSadnje() + ", " + b.getDubinaSadnje() + ", " + b.getSvetlo() + ", " + b.getVoda();
+
+        if (b.getNapomena() != null && !b.getNapomena().equals("")) {
+            komanda += " \"" + b.getNapomena().replaceAll(" ", "_") + "\"";
+        }
 
         System.out.println(komanda);
 
@@ -58,6 +62,12 @@ public class Controller {
             e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+
+        if (parser.success == true) {
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.badRequest().build();
         }
     }
 

@@ -39,7 +39,6 @@
       </div>
     </div>
   </div>
-  </div>
 </template>
 
 <script>
@@ -58,6 +57,32 @@ export default {
     };
   },
   methods: {
+    beautifyMesto: function (mesto) {
+      switch(mesto) {
+        case 'basta': mesto = 'Bašta'; break;
+        case 'rasad': mesto = 'Rasad'; break;
+        default: break;
+      }
+      return mesto;
+    },
+    beautifyMesec: function (mesec) {
+      switch(mesec) {
+        case 'JAN': mesec = "Januar"; break;
+        case 'FEB': mesec = "Februar"; break;
+        case 'MAR': mesec = "Mart"; break;
+        case 'APR': mesec = "April"; break;
+        case 'MAJ': mesec = "Maj"; break;
+        case 'JUN': mesec = "Jun"; break;
+        case 'JUL': mesec = "Jul"; break;
+        case 'AVG': mesec = "Avgust"; break;
+        case 'SEP': mesec = "Septembar"; break;
+        case 'OKT': mesec = "Oktobar"; break;
+        case 'NOV': mesec = "Novembar"; break;
+        case 'DEC': mesec = "Decembar"; break;
+        default: break;
+      }
+      return mesec;
+    },
     onSubmit: function(e) {
       e.preventDefault();
 
@@ -66,6 +91,21 @@ export default {
       axios.get('http://localhost:8080/biljke/search/' + this.$data.range)
       .then(response => {
         console.log(response.data);
+
+        let context = this;
+
+        response.data.forEach(function(item, idx) {
+          item.ime = item.ime.replace(/_/g, " ")
+          if (item.napomena != null && item.napomena != "") {
+            item.napomena = item.napomena.replace(/_/g, " ")
+          }
+          item.mesecSadnje = context.beautifyMesec(item.mesecSadnje)
+          item.mesecBerbe = context.beautifyMesec(item.mesecBerbe) 
+          item.mestoSadnje = context.beautifyMesto(item.mestoSadnje)
+          item.svetlo = item.svetlo.charAt(0).toUpperCase() + item.svetlo.slice(1)
+          item.voda = item.voda.charAt(0).toUpperCase() + item.voda.slice(1)
+        })
+
         this.$data.res = response.data;
       })
       .catch(e => {

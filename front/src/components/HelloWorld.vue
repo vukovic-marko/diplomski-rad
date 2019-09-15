@@ -150,10 +150,16 @@ export default {
 
       axios.post('http://localhost:8080/biljke/add', this.$data.biljka)
       .then(response => {
-        console.log(response.data);
+        this.$toast.success({
+          title:'Dodavanje biljke uspelo',
+          message:'Biljka je uspesno dodata.'
+        })
       })
       .catch(e => {
-        console.log(e);
+        this.$toast.error({
+          title:'Dodavanje biljke nije uspelo',
+          message:'Proverite ispravnost unetih podataka.'
+        })
       });
     }
   }
