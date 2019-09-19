@@ -1,3 +1,5 @@
+package diplomski.rad.Aplikacija;
+
 import java.io.*;
 import java_cup.runtime.*;
 
