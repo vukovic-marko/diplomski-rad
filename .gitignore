@@ -126,6 +126,9 @@ yarn-error.log
 # compiled java files
 *.class
 
+# temp file
+temp.txt
+
 # End of https://www.gitignore.io/api/vuejs,linux,intellij,java-web,visualstudiocode
 
 
