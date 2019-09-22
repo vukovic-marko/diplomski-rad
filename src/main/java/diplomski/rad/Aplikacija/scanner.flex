@@ -6,7 +6,6 @@ import java_cup.runtime.*;
 %%
 
 %cup
-%cupdebug
 %line
 %column
 

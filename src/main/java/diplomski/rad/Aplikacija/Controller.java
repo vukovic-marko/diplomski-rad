@@ -15,29 +15,8 @@ import java.util.List;
 @RequestMapping("/biljke")
 public class Controller {
 
-//    @PostMapping("/test")
-//    public void hello(@RequestBody Biljka b) {
-//        System.out.println(b.getIme());
-//        System.out.println(b.getMesecSadnje());
-//        System.out.println(b.getMesecBerbe());
-//        System.out.println(b.getMestoSadnje());
-//        System.out.println(b.getDubinaSadnje());
-//        System.out.println(b.getSvetlo());
-//        System.out.println(b.getVoda());
-//        System.out.println(b.getNapomena().replaceAll(" ", "_"));
-//    }
-
     @PostMapping("/add")
     public ResponseEntity<Boolean> add(@RequestBody Biljka b) {
-
-//        System.out.println(b.getIme());
-//        System.out.println(b.getMesecSadnje());
-//        System.out.println(b.getMesecBerbe());
-//        System.out.println(b.getMestoSadnje());
-//        System.out.println(b.getDubinaSadnje());
-//        System.out.println(b.getSvetlo());
-//        System.out.println(b.getVoda());
-//        System.out.println(b.getNapomena().replaceAll(" ", "_"));
 
         String komanda = "dodaj " + "\"" + b.getIme().replaceAll(" ", "_") + "\"" + " (" + b.getMesecSadnje() + ", " + b.getMesecBerbe() + ") " +
                 b.getMestoSadnje() + ", " + b.getDubinaSadnje() + ", " + b.getSvetlo() + ", " + b.getVoda();
@@ -51,12 +30,12 @@ public class Controller {
         FileWriter fileWriter = null;
 
         try {
-            fileWriter = new FileWriter("/home/marko/Aplikacija/src/main/java/diplomski/rad/Aplikacija/temp.txt");
+            fileWriter = new FileWriter(System.getProperty("user.dir") + "/temp.txt");
             PrintWriter printWriter = new PrintWriter(fileWriter);
             printWriter.print(komanda);
             printWriter.close();
 
-            parser.par("/home/marko/Aplikacija/src/main/java/diplomski/rad/Aplikacija/temp.txt");
+            parser.par(System.getProperty("user.dir") + "/temp.txt");
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -125,12 +104,12 @@ public class Controller {
         List<DBObject> res = null;
 
         try {
-            fileWriter = new FileWriter("/home/marko/Aplikacija/src/main/java/diplomski/rad/Aplikacija/temp.txt");
+            fileWriter = new FileWriter(System.getProperty("user.dir") + "/temp.txt");
             PrintWriter printWriter = new PrintWriter(fileWriter);
             printWriter.print(komanda);
             printWriter.close();
 
-            res = parser.par("/home/marko/Aplikacija/src/main/java/diplomski/rad/Aplikacija/temp.txt");
+            res = parser.par(System.getProperty("user.dir") + "/temp.txt");
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -178,12 +157,12 @@ public class Controller {
         List<DBObject> res = null;
 
         try {
-            fileWriter = new FileWriter("/home/marko/Aplikacija/src/main/java/diplomski/rad/Aplikacija/temp.txt");
+            fileWriter = new FileWriter(System.getProperty("user.dir") + "/temp.txt");
             PrintWriter printWriter = new PrintWriter(fileWriter);
             printWriter.print(komanda);
             printWriter.close();
 
-            res = parser.par("/home/marko/Aplikacija/src/main/java/diplomski/rad/Aplikacija/temp.txt");
+            res = parser.par(System.getProperty("user.dir") + "/temp.txt");
 
         } catch (IOException e) {
             e.printStackTrace();
