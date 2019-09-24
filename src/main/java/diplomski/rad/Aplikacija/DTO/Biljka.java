@@ -2,6 +2,7 @@ package diplomski.rad.Aplikacija.DTO;
 
 public class Biljka {
 
+    private String id;
     private String ime;
     private String mesecSadnje;
     private String mesecBerbe;
@@ -13,6 +14,14 @@ public class Biljka {
 
     public Biljka() {
 
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getIme() {

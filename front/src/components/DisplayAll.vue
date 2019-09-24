@@ -17,7 +17,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="obj in res" v-bind:key="obj">
+                <tr v-for="(obj,idx) in res" v-bind:key="obj">
                     <td>{{obj.ime}}</td>
                     <td>{{obj.mesecSadnje}}</td>
                     <td>{{obj.mesecBerbe}}</td>
@@ -26,7 +26,7 @@
                     <td>{{obj.svetlo}}</td>
                     <td>{{obj.voda}}</td>
                     <td>{{obj.napomena}}</td>
-                    <td>x</td>
+                    <td><a href="void(0)" v-on:click="ukloniBiljku($event, idx)">x</a></td>
                 </tr>
             </tbody>
         </table>
@@ -54,6 +54,7 @@
                     voda: '',
                     napomena: ''
                 },
+                cnt: 0,
                 res: null
             }
         },
@@ -83,32 +84,47 @@
                     default: break;
                 }
                 return mesec;
+            },
+            ucitajBiljke: function() {
+                axios.post('http://localhost:8080/biljke/search', this.$data.biljka)
+                    .then(response => {
+                        console.log(response.data);
+
+                        let context = this;
+
+                        response.data.forEach(function(item, idx) {
+                            item.ime = item.ime.replace(/_/g, " ")
+                            if (item.napomena != null && item.napomena != "") {
+                                item.napomena = item.napomena.replace(/_/g, " ")
+                            }
+                            item.mesecSadnje = context.beautifyMesec(item.mesecSadnje)
+                            item.mesecBerbe = context.beautifyMesec(item.mesecBerbe)
+                            item.mestoSadnje = context.beautifyMesto(item.mestoSadnje)
+                            item.svetlo = item.svetlo.charAt(0).toUpperCase() + item.svetlo.slice(1)
+                            item.voda = item.voda.charAt(0).toUpperCase() + item.voda.slice(1)
+                        })
+
+                        this.$data.res = response.data;
+                    })
+                    .catch(e => {
+                        console.log(e);
+                    });
+            },
+            ukloniBiljku: function(e, idx) {
+                e.preventDefault();
+
+                console.log(this.$data.res[idx])
+
+                axios.get('http://localhost:8080/biljke/delete/' + this.$data.res[idx].id)
+                    .then(response => {
+                        this.$data.res = null
+
+                        this.ucitajBiljke();
+                    })
             }
         },
         beforeMount(){
-            axios.post('http://localhost:8080/biljke/search', this.$data.biljka)
-                .then(response => {
-                    console.log(response.data);
-
-                    let context = this;
-
-                    response.data.forEach(function(item, idx) {
-                        item.ime = item.ime.replace(/_/g, " ")
-                        if (item.napomena != null && item.napomena != "") {
-                            item.napomena = item.napomena.replace(/_/g, " ")
-                        }
-                        item.mesecSadnje = context.beautifyMesec(item.mesecSadnje)
-                        item.mesecBerbe = context.beautifyMesec(item.mesecBerbe)
-                        item.mestoSadnje = context.beautifyMesto(item.mestoSadnje)
-                        item.svetlo = item.svetlo.charAt(0).toUpperCase() + item.svetlo.slice(1)
-                        item.voda = item.voda.charAt(0).toUpperCase() + item.voda.slice(1)
-                    })
-
-                    this.$data.res = response.data;
-                })
-                .catch(e => {
-                    console.log(e);
-                });
+            this.ucitajBiljke();
         }
     }
 </script>

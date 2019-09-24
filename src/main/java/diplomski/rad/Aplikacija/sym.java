@@ -11,19 +11,20 @@ public interface sym {
   public static final int SVETLO = 7;
   public static final int PRETRAZI = 10;
   public static final int IME = 11;
-  public static final int OZAGRADA = 19;
+  public static final int OZAGRADA = 20;
   public static final int ZAREZ = 4;
   public static final int SADNJA = 12;
   public static final int VODA = 8;
   public static final int VODA_KW = 17;
   public static final int BERBA = 13;
   public static final int NAVODNIK = 3;
-  public static final int BROJ = 22;
+  public static final int BROJ = 23;
   public static final int DUBINA = 15;
   public static final int EOF = 0;
+  public static final int UKLONI = 19;
   public static final int MESTO = 6;
-  public static final int ZZAGRADA = 20;
-  public static final int PRETRAZI_RASPON = 21;
+  public static final int ZZAGRADA = 21;
+  public static final int PRETRAZI_RASPON = 22;
   public static final int error = 1;
   public static final int MESEC = 5;
   public static final int TEXT = 9;
@@ -51,6 +52,7 @@ public interface sym {
   "SVETLO_KW",
   "VODA_KW",
   "JEDNAKO",
+  "UKLONI",
   "OZAGRADA",
   "ZZAGRADA",
   "PRETRAZI_RASPON",

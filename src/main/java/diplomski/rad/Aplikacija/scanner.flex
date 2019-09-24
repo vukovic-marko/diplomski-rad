@@ -23,7 +23,7 @@ import java_cup.runtime.*;
 	}
 %}
 
-text = [a-zA-Z_]+
+text = [a-zA-Z_0-9]+
 mesec = "JAN"|"FEB"|"MAR"|"APR"|"MAJ"|"JUN"|"JUL"|"AVG"|"SEP"|"OKT"|"NOV"|"DEC"
 mesto = "basta"|"rasad"
 broj = [1-9][0-9]*
@@ -35,6 +35,7 @@ voda = "puno"|"srednje"|"malo"
 "dodaj"             { return new_symbol(sym.DODAJ); }
 "pretrazi_raspon"	{ return new_symbol(sym.PRETRAZI_RASPON); }
 "pretrazi"			{ return new_symbol(sym.PRETRAZI); }
+"ukloni"            { return new_symbol(sym.UKLONI); }
 "ime"				{ return new_symbol(sym.IME); }
 "sadnja"			{ return new_symbol(sym.SADNJA); }
 "berba"				{ return new_symbol(sym.BERBA); }

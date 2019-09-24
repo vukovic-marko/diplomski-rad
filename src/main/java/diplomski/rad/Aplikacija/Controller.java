@@ -139,6 +139,8 @@ public class Controller {
                     temp.setVoda(obj.get("voda").toString());
                 } else if (key.equals("napomena")) {
                     temp.setNapomena(obj.get("napomena").toString());
+                } else if (key.equals("_id")) {
+                    temp.setId(obj.get("_id").toString());
                 }
             }
             ret.add(temp);
@@ -192,11 +194,36 @@ public class Controller {
                     temp.setVoda(obj.get("voda").toString());
                 } else if (key.equals("napomena")) {
                     temp.setNapomena(obj.get("napomena").toString());
+                } else if (key.equals("_id")) {
+                    temp.setId(obj.get("_id").toString());
                 }
             }
             ret.add(temp);
         }
 
         return ret;
+    }
+
+    @GetMapping("/delete/{id}")
+    public void delete(@PathVariable("id") String id) {
+        String komanda = "ukloni " + id;
+
+        System.out.println(komanda);
+
+        FileWriter fileWriter = null;
+
+        try {
+            fileWriter = new FileWriter(System.getProperty("user.dir") + "/temp.txt");
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+            printWriter.print(komanda);
+            printWriter.close();
+
+            parser.par(System.getProperty("user.dir") + "/temp.txt");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

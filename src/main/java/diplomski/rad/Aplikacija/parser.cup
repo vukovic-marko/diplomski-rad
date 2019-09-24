@@ -9,6 +9,7 @@ import java.util.List;
 
 import java.util.ArrayList;
 import com.mongodb.*;
+import org.bson.types.ObjectId;
 
 parser code
 {:
@@ -77,11 +78,12 @@ parser code
 
 terminal            DODAJ, NAVODNIK, ZAREZ, MESEC, MESTO, SVETLO, VODA, TEXT;
 terminal            PRETRAZI, IME, SADNJA, BERBA, MESTO_KW, DUBINA, SVETLO_KW, VODA_KW, JEDNAKO;
+terminal            UKLONI;
 terminal            OZAGRADA, ZZAGRADA;
 terminal            PRETRAZI_RASPON;
 terminal Integer    BROJ;
 
-non terminal izraz, pre_part, pretraga, pretraga_raspon, dodavanje;
+non terminal izraz, pre_part, pretraga, pretraga_raspon, dodavanje, uklanjanje;
 
 start with izraz;
 
@@ -149,15 +151,25 @@ izraz ::=           dodavanje:d {:
                         DBCursor cursor = collection.find(whereQuery);
                         while(cursor.hasNext()) {
                             DBObject obj = cursor.next();
+                            System.out.println(obj);
                             res.add(obj);
 //                            System.out.println("\t" + obj);
                         }
 
-                        System.out.println("Izraz za pretragu raspona parsiran bez greske." + b); :}
+                        System.out.println("Izraz za pretragu raspona parsiran bez greske."); :}
+                    | uklanjanje: u {:
+                        collection.remove(new BasicDBObject("_id", new ObjectId(u.toString())));
+                        System.out.println("Izraz za brisanje parsiran bez greske.");
+                        :}
                     | error {:
                         success = false;
                         System.err.println("Neispravan izraz.\n"); :}
                     ;
+
+uklanjanje ::=      UKLONI TEXT: id {:
+                        RESULT = id; :}
+                    ;
+
 dodavanje ::=       DODAJ NAVODNIK TEXT:ime NAVODNIK OZAGRADA MESEC:sadnja ZAREZ MESEC:berba ZZAGRADA MESTO:mesto ZAREZ BROJ:broj ZAREZ SVETLO:svetlo ZAREZ VODA:voda NAVODNIK TEXT:napomena NAVODNIK {:
                         
                         Map<String, Object> mapa = new HashMap();
