@@ -5,7 +5,8 @@
     <div id="nav">
       <router-link to="/">Dodavanje</router-link> |
       <router-link to="/about">Pretraga po parametrima</router-link> |
-      <router-link to="/range">Pretraga po trajanju vegetacije</router-link>
+      <router-link to="/range">Pretraga po trajanju vegetacije</router-link> |
+      <router-link to="/all">Prikaz svih biljaka</router-link>
     </div>
     <router-view/>
   </div>

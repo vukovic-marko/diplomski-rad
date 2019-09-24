@@ -152,7 +152,7 @@ export default {
       .then(response => {
         this.$toast.success({
           title:'Dodavanje biljke uspelo',
-          message:'Biljka je uspesno dodata.'
+          message:'Biljka je uspešno dodata.'
         })
       })
       .catch(e => {

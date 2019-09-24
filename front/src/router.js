@@ -24,6 +24,12 @@ export default new Router({
       name: 'third',
 
       component: () => import('./views/Third.vue')
+    },
+    {
+      path: '/all',
+          name: 'Fourth',
+
+        component: () => import('./views/Fourth.vue')
     }
   ]
 })

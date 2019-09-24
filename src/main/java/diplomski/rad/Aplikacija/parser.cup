@@ -119,14 +119,16 @@ izraz ::=           dodavanje:d {:
                     | pretraga:p {:
 
                         Map<String, Object> mapa = (Map) p;
-                        
+
                         BasicDBObject whereQuery = new BasicDBObject();
 
-                        for (String key : mapa.keySet()) {
-                            if (key.equals("dubina")) {
-                                whereQuery.put(key, new BasicDBObject("$eq", mapa.get(key)));
-                            } else { 
-                                whereQuery.put(key, new BasicDBObject("$regex", "^" + mapa.get(key)));
+                        if (mapa != null) {
+                            for (String key : mapa.keySet()) {
+                                if (key.equals("dubina")) {
+                                    whereQuery.put(key, new BasicDBObject("$eq", mapa.get(key)));
+                                } else {
+                                    whereQuery.put(key, new BasicDBObject("$regex", "^" + mapa.get(key)));
+                                }
                             }
                         }
 
@@ -194,6 +196,10 @@ pretraga ::=        pretraga:mapa ZAREZ pre_part:p {:
                         
                         RESULT = new HashMap<String, Object>();
                         ((Map) RESULT).put(((Map)p).keySet().toArray()[0], ((Map)p).get(((Map)p).keySet().toArray()[0]));
+                    :}
+                    | PRETRAZI {:
+
+                        RESULT = null;
                     :}
                     ;
 
