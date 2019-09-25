@@ -24,9 +24,10 @@ import java_cup.runtime.*;
 %}
 
 text = [a-zA-Z_0-9]+
+broj = [1-9][0-9]*
+
 mesec = "JAN"|"FEB"|"MAR"|"APR"|"MAJ"|"JUN"|"JUL"|"AVG"|"SEP"|"OKT"|"NOV"|"DEC"
 mesto = "basta"|"rasad"
-broj = [1-9][0-9]*
 svetlo = "senka"|"polusenka"|"sunce"
 voda = "puno"|"srednje"|"malo"
 

@@ -52,37 +52,37 @@ public class parser extends java_cup.runtime.lr_parser {
   /** Parse-action table. */
   protected static final short[][] _action_table = 
     unpackFromStrings(new String[] {
-    "\000\070\000\014\003\012\004\006\014\004\025\011\030" +
-    "\010\001\002\000\024\002\ufff6\006\ufff6\015\020\016\025" +
-    "\017\022\020\021\021\026\022\017\023\023\001\002\000" +
-    "\004\002\000\001\002\000\004\005\050\001\002\000\004" +
-    "\002\ufffd\001\002\000\004\031\047\001\002\000\004\013" +
-    "\046\001\002\000\004\002\ufffc\001\002\000\004\002\045" +
-    "\001\002\000\004\002\ufffe\001\002\000\006\002\uffff\006" +
-    "\016\001\002\000\020\015\020\016\025\017\022\020\021" +
-    "\021\026\022\017\023\023\001\002\000\004\024\043\001" +
-    "\002\000\004\024\041\001\002\000\004\024\037\001\002" +
-    "\000\004\024\035\001\002\000\004\024\033\001\002\000" +
-    "\006\002\ufff8\006\ufff8\001\002\000\004\024\031\001\002" +
-    "\000\004\024\027\001\002\000\004\031\030\001\002\000" +
-    "\006\002\ufff0\006\ufff0\001\002\000\004\007\032\001\002" +
-    "\000\006\002\ufff3\006\ufff3\001\002\000\004\012\034\001" +
-    "\002\000\006\002\uffee\006\uffee\001\002\000\004\007\036" +
-    "\001\002\000\006\002\ufff2\006\ufff2\001\002\000\004\010" +
-    "\040\001\002\000\006\002\ufff1\006\ufff1\001\002\000\004" +
-    "\013\042\001\002\000\006\002\ufff4\006\ufff4\001\002\000" +
-    "\004\011\044\001\002\000\006\002\uffef\006\uffef\001\002" +
-    "\000\004\002\001\001\002\000\004\002\ufffb\001\002\000" +
-    "\004\002\ufff5\001\002\000\004\013\051\001\002\000\004" +
-    "\005\052\001\002\000\004\026\053\001\002\000\004\007" +
-    "\054\001\002\000\004\006\055\001\002\000\004\007\056" +
-    "\001\002\000\004\027\057\001\002\000\004\010\060\001" +
-    "\002\000\004\006\061\001\002\000\004\031\062\001\002" +
-    "\000\004\006\063\001\002\000\004\011\064\001\002\000" +
-    "\004\006\065\001\002\000\004\012\066\001\002\000\006" +
-    "\002\ufff9\005\067\001\002\000\004\013\070\001\002\000" +
-    "\004\005\071\001\002\000\004\002\ufffa\001\002\000\006" +
-    "\002\ufff7\006\ufff7\001\002" });
+    "\000\070\000\014\003\013\004\007\005\004\006\011\007" +
+    "\012\001\002\000\024\002\ufff6\010\021\011\026\012\017" +
+    "\013\023\014\025\015\022\017\ufff6\023\020\001\002\000" +
+    "\004\002\071\001\002\000\004\002\000\001\002\000\004" +
+    "\016\047\001\002\000\004\002\ufffd\001\002\000\004\031" +
+    "\046\001\002\000\004\030\045\001\002\000\004\002\ufffc" +
+    "\001\002\000\004\002\ufffe\001\002\000\006\002\uffff\017" +
+    "\016\001\002\000\020\010\021\011\026\012\017\013\023" +
+    "\014\025\015\022\023\020\001\002\000\004\022\043\001" +
+    "\002\000\004\022\041\001\002\000\004\022\037\001\002" +
+    "\000\004\022\035\001\002\000\004\022\033\001\002\000" +
+    "\006\002\ufff8\017\ufff8\001\002\000\004\022\031\001\002" +
+    "\000\004\022\027\001\002\000\004\031\030\001\002\000" +
+    "\006\002\ufff0\017\ufff0\001\002\000\004\024\032\001\002" +
+    "\000\006\002\ufff3\017\ufff3\001\002\000\004\027\034\001" +
+    "\002\000\006\002\uffee\017\uffee\001\002\000\004\024\036" +
+    "\001\002\000\006\002\ufff2\017\ufff2\001\002\000\004\025" +
+    "\040\001\002\000\006\002\ufff1\017\ufff1\001\002\000\004" +
+    "\030\042\001\002\000\006\002\ufff4\017\ufff4\001\002\000" +
+    "\004\026\044\001\002\000\006\002\uffef\017\uffef\001\002" +
+    "\000\004\002\ufffb\001\002\000\004\002\ufff5\001\002\000" +
+    "\004\030\050\001\002\000\004\016\051\001\002\000\004" +
+    "\020\052\001\002\000\004\024\053\001\002\000\004\017" +
+    "\054\001\002\000\004\024\055\001\002\000\004\021\056" +
+    "\001\002\000\004\025\057\001\002\000\004\017\060\001" +
+    "\002\000\004\031\061\001\002\000\004\017\062\001\002" +
+    "\000\004\026\063\001\002\000\004\017\064\001\002\000" +
+    "\004\027\065\001\002\000\006\002\ufff9\016\066\001\002" +
+    "\000\004\030\067\001\002\000\004\016\070\001\002\000" +
+    "\004\002\ufffa\001\002\000\004\002\001\001\002\000\006" +
+    "\002\ufff7\017\ufff7\001\002" });
 
   /** Access to parse-action table. */
   public short[][] action_table() {return _action_table;}
@@ -90,8 +90,8 @@ public class parser extends java_cup.runtime.lr_parser {
   /** <code>reduce_goto</code> table. */
   protected static final short[][] _reduce_table = 
     unpackFromStrings(new String[] {
-    "\000\070\000\014\002\012\004\014\005\013\006\004\007" +
-    "\006\001\001\000\004\003\071\001\001\000\002\001\001" +
+    "\000\070\000\014\002\004\004\014\005\013\006\005\007" +
+    "\007\001\001\000\004\003\071\001\001\000\002\001\001" +
     "\000\002\001\001\000\002\001\001\000\002\001\001\000" +
     "\002\001\001\000\002\001\001\000\002\001\001\000\002" +
     "\001\001\000\002\001\001\000\004\003\023\001\001\000" +
@@ -164,7 +164,7 @@ public class parser extends java_cup.runtime.lr_parser {
         res = new ArrayList();
         success = null;
         new parser(new Yylex(new FileReader(new File(file)))).parse();
-
+        
         return res;
     }
 
@@ -235,7 +235,7 @@ class CUP$parser$actions {
       switch (CUP$parser$act_num)
         {
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 0: // $START ::= izraz EOF 
+          case 0: // $START ::= komanda EOF 
             {
               Object RESULT =null;
 		int start_valleft = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)).left;
@@ -249,7 +249,7 @@ class CUP$parser$actions {
           return CUP$parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 1: // izraz ::= dodavanje 
+          case 1: // komanda ::= dodavanje 
             {
               Object RESULT =null;
 		int dleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
@@ -279,12 +279,12 @@ class CUP$parser$actions {
                         success = true;
 
                         System.out.println("Dodavanje biljke sa imenom '" + mapa.get("ime") + "' uspesno izvrseno."); 
-              CUP$parser$result = parser.getSymbolFactory().newSymbol("izraz",0, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
+              CUP$parser$result = parser.getSymbolFactory().newSymbol("komanda",0, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 2: // izraz ::= pretraga 
+          case 2: // komanda ::= pretraga 
             {
               Object RESULT =null;
 		int pleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
@@ -313,13 +313,13 @@ class CUP$parser$actions {
 //                            System.out.println("\t" + obj);
                         }
 
-                        System.out.println("Izraz za pretragu parsiran bez greske." + p); 
-              CUP$parser$result = parser.getSymbolFactory().newSymbol("izraz",0, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
+                        System.out.println("Komanda za pretragu parsirana bez greske." + p); 
+              CUP$parser$result = parser.getSymbolFactory().newSymbol("komanda",0, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 3: // izraz ::= pretraga_raspon 
+          case 3: // komanda ::= pretraga_raspon 
             {
               Object RESULT =null;
 		int bleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
@@ -339,13 +339,13 @@ class CUP$parser$actions {
 //                            System.out.println("\t" + obj);
                         }
 
-                        System.out.println("Izraz za pretragu raspona parsiran bez greske."); 
-              CUP$parser$result = parser.getSymbolFactory().newSymbol("izraz",0, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
+                        System.out.println("Komanda za pretragu raspona parsirana bez greske."); 
+              CUP$parser$result = parser.getSymbolFactory().newSymbol("komanda",0, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 4: // izraz ::= uklanjanje 
+          case 4: // komanda ::= uklanjanje 
             {
               Object RESULT =null;
 		int uleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
@@ -353,20 +353,20 @@ class CUP$parser$actions {
 		Object u = (Object)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
                         collection.remove(new BasicDBObject("_id", new ObjectId(u.toString())));
-                        System.out.println("Izraz za brisanje parsiran bez greske.");
+                        System.out.println("Komanda za brisanje parsirana bez greske.");
                         
-              CUP$parser$result = parser.getSymbolFactory().newSymbol("izraz",0, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
+              CUP$parser$result = parser.getSymbolFactory().newSymbol("komanda",0, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 5: // izraz ::= error 
+          case 5: // komanda ::= error 
             {
               Object RESULT =null;
 		
                         success = false;
-                        System.err.println("Neispravan izraz.\n"); 
-              CUP$parser$result = parser.getSymbolFactory().newSymbol("izraz",0, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
+                        System.err.println("Neispravna komanda.\n"); 
+              CUP$parser$result = parser.getSymbolFactory().newSymbol("komanda",0, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
 

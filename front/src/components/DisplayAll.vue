@@ -88,11 +88,11 @@
             ucitajBiljke: function() {
                 axios.post('http://localhost:8080/biljke/search', this.$data.biljka)
                     .then(response => {
-                        console.log(response.data);
 
                         let context = this;
 
                         response.data.forEach(function(item, idx) {
+                            idx;
                             item.ime = item.ime.replace(/_/g, " ")
                             if (item.napomena != null && item.napomena != "") {
                                 item.napomena = item.napomena.replace(/_/g, " ")
@@ -107,17 +107,17 @@
                         this.$data.res = response.data;
                     })
                     .catch(e => {
-                        console.log(e);
+                        e;
                     });
             },
             ukloniBiljku: function(e, idx) {
                 e.preventDefault();
 
-                console.log(this.$data.res[idx])
-
                 axios.get('http://localhost:8080/biljke/delete/' + this.$data.res[idx].id)
                     .then(response => {
                         this.$data.res = null
+
+                        response;
 
                         this.ucitajBiljke();
                     })

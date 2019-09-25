@@ -8,54 +8,54 @@ package diplomski.rad.Aplikacija;
 /** CUP generated interface containing symbol constants. */
 public interface sym {
   /* terminals */
-  public static final int SVETLO = 7;
-  public static final int PRETRAZI = 10;
-  public static final int IME = 11;
-  public static final int OZAGRADA = 20;
-  public static final int ZAREZ = 4;
-  public static final int SADNJA = 12;
-  public static final int VODA = 8;
-  public static final int VODA_KW = 17;
-  public static final int BERBA = 13;
-  public static final int NAVODNIK = 3;
+  public static final int SVETLO = 20;
+  public static final int PRETRAZI = 3;
+  public static final int IME = 17;
+  public static final int OZAGRADA = 14;
+  public static final int ZAREZ = 13;
+  public static final int SADNJA = 10;
+  public static final int VODA = 21;
+  public static final int VODA_KW = 9;
+  public static final int BERBA = 11;
+  public static final int NAVODNIK = 12;
   public static final int BROJ = 23;
-  public static final int DUBINA = 15;
+  public static final int DUBINA = 7;
   public static final int EOF = 0;
-  public static final int UKLONI = 19;
-  public static final int MESTO = 6;
-  public static final int ZZAGRADA = 21;
-  public static final int PRETRAZI_RASPON = 22;
+  public static final int UKLONI = 5;
+  public static final int MESTO = 19;
+  public static final int ZZAGRADA = 15;
+  public static final int PRETRAZI_RASPON = 4;
   public static final int error = 1;
-  public static final int MESEC = 5;
-  public static final int TEXT = 9;
-  public static final int MESTO_KW = 14;
-  public static final int JEDNAKO = 18;
+  public static final int MESEC = 18;
+  public static final int TEXT = 22;
+  public static final int MESTO_KW = 6;
+  public static final int JEDNAKO = 16;
   public static final int DODAJ = 2;
-  public static final int SVETLO_KW = 16;
+  public static final int SVETLO_KW = 8;
   public static final String[] terminalNames = new String[] {
   "EOF",
   "error",
   "DODAJ",
+  "PRETRAZI",
+  "PRETRAZI_RASPON",
+  "UKLONI",
+  "MESTO_KW",
+  "DUBINA",
+  "SVETLO_KW",
+  "VODA_KW",
+  "SADNJA",
+  "BERBA",
   "NAVODNIK",
   "ZAREZ",
+  "OZAGRADA",
+  "ZZAGRADA",
+  "JEDNAKO",
+  "IME",
   "MESEC",
   "MESTO",
   "SVETLO",
   "VODA",
   "TEXT",
-  "PRETRAZI",
-  "IME",
-  "SADNJA",
-  "BERBA",
-  "MESTO_KW",
-  "DUBINA",
-  "SVETLO_KW",
-  "VODA_KW",
-  "JEDNAKO",
-  "UKLONI",
-  "OZAGRADA",
-  "ZZAGRADA",
-  "PRETRAZI_RASPON",
   "BROJ"
   };
 }

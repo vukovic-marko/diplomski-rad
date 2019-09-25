@@ -8,8 +8,9 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      name: 'Fourth',
+
+      component: () => import('./views/Fourth.vue')
     },
     {
       path: '/about',
@@ -26,10 +27,10 @@ export default new Router({
       component: () => import('./views/Third.vue')
     },
     {
-      path: '/all',
-          name: 'Fourth',
 
-        component: () => import('./views/Fourth.vue')
+      path: '/add',
+          name: 'home',
+        component: Home
     }
   ]
 })
