@@ -12,15 +12,4 @@ public class AplikacijaApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AplikacijaApplication.class, args);
-	}
-
-	@Configuration
-	@EnableWebMvc
-	public class WebConfig implements WebMvcConfigurer {
-
-		@Override
-		public void addCorsMappings(CorsRegistry registry) {
-			registry.addMapping("/**");
-		}
-	}
-}
+	}}
